@@ -24,8 +24,11 @@ def distinct_words(corpus):
     
 ### SOLUTION BEGIN
 
-    corpus = corpus.lower()
-    corpus = corpus.split()
+    corpusFlat = []
+    for subList in corpus:
+        for item in subList:
+            corpusFlat.append(item)
+    corpus = list(map(lambda x:x.lower(),corpusFlat))
     corpus = sorted(corpus)
     corpus_d = {i:corpus.count(i) for i in corpus}
     for key in corpus_d.keys():
