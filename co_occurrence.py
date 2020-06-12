@@ -19,8 +19,17 @@ def distinct_words(corpus):
             corpus_words (list of strings): list of distinct words across the corpus, sorted (using python 'sorted' function)
             num_corpus_words (integer): number of distinct words across the corpus
     """
+    #corpus_words = []
+    #num_corpus_words = -1
+    corpus = corpus.lower()
+    corpus = corpus.split()
+    corpus = sorted(corpus)
+    corpus_d = {i:corpus.count(i) for i in corpus}
     corpus_words = []
-    num_corpus_words = -1
+    num_corpus_words = []
+    for key,values in corpus_d.items():
+        corpus_words.append(key)
+        num_corpus_words.append(values)
     
 ### SOLUTION BEGIN
 ### SOLUTION END
