@@ -102,6 +102,9 @@ def reduce_to_k_dim(M, k=2):
     print("Running Truncated SVD over %i words..." % (M.shape[0]))
     
     ### SOLUTION BEGIN
+    svd = TruncatedSVD(n_components=k, n_iter=n_iters)
+    M_reduced = svd.fit(M).transform(M)
+
     ### SOLUTION END
 
     print("Done.")
