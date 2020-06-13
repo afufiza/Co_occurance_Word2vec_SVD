@@ -28,7 +28,7 @@ def distinct_words(corpus):
     for subList in corpus:
         for item in subList:
             corpusFlat.append(item)
-    corpus = list(map(lambda x:x.lower(),corpusFlat))
+    corpus = [string.lower() for string in corpusFlat]
     corpus = sorted(corpus)
     corpus_d = {i:corpus.count(i) for i in corpus}
     for key in corpus_d.keys():
