@@ -63,22 +63,22 @@ def compute_co_occurrence_matrix(corpus, window_size=4):
     word2Ind = {}
     
 ### SOLUTION BEGIN
-corpus = [[element.lower() for element in sublist] for sublist in corpus]
+    corpus = [[element.lower() for element in sublist] for sublist in corpus]
 
-M = np.zeros((len(words),len(words)))
-for centerWord in words:
-    index = words.index(centerWord)
-    word2Ind[centerWord] = index
-    for sent in corpus:
-        for indexOfCenterWord,word in enumerate(sent):
-            if centerWord == word:
-                for i in range(window_size):
-                    if indexOfCenterWord-i-1 >=0:
-                        leftNum = sent[indexOfCenterWord-i-1]
-                        M[index,words.index(leftNum)]+=1
-                    if indexOfCenterWord+i+1<len(sent):
-                        rightNum = sent[indexOfCenterWord+i+1]
-                        M[index,words.index(rightNum)]+=1
+    M = np.zeros((len(words),len(words)))
+    for centerWord in words:
+        index = words.index(centerWord)
+        word2Ind[centerWord] = index
+        for sent in corpus:
+            for indexOfCenterWord,word in enumerate(sent):
+                if centerWord == word:
+                    for i in range(window_size):
+                        if indexOfCenterWord-i-1 >=0:
+                            leftNum = sent[indexOfCenterWord-i-1]
+                            M[index,words.index(leftNum)]+=1
+                        if indexOfCenterWord+i+1<len(sent):
+                            rightNum = sent[indexOfCenterWord+i+1]
+                            M[index,words.index(rightNum)]+=1
 ### SOLUTION END
 
     return M, word2Ind
